@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.rb_shibe.R;
-import com.example.rb_shibe.databinding.ActivityMainBinding;
 import com.example.rb_shibe.viewmodel.MainViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
