@@ -15,8 +15,8 @@ public class ShibeRepository {
 
     }
 
-    public Call<List<String>> getShibes(int count) {
-        return RetrofitInstance.getInstance().getShibes(count);
+    public Call<List<String>> getShibes(String type, int count) {
+        return RetrofitInstance.getInstance().getShibes(type, count);
     }
 
     public static ShibeRepository getInstance() {

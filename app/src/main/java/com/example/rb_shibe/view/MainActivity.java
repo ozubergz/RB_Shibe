@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.rb_shibe.adapter.ShibeAdapter;
 import com.example.rb_shibe.databinding.ActivityMainBinding;
+import com.example.rb_shibe.util.Constants;
 import com.example.rb_shibe.viewmodel.MainViewModel;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
     private ActivityMainBinding binding;
+    private String typeData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +29,14 @@ public class MainActivity extends AppCompatActivity {
         // setContentView takes in binding.getRoot() whenever using binding
         setContentView(binding.getRoot());
 
+        int intData = getIntent().getIntExtra(Constants.DASHBOARD_ACTIVITY_PARAM_INT, 0);
+        typeData = getIntent().getStringExtra(Constants.DASHBOARD_ACTIVITY_PARAM_TYPE);
+
         initObservers();
         initView();
+
+        viewModel.fetchShibes(typeData, intData);
+
     }
 
     private void initObservers() {
@@ -58,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("click");
                 String count = binding.etInput.getText().toString();
                 if(!count.isEmpty())
-                    viewModel.fetchShibes(Integer.parseInt(count));
+                    viewModel.fetchShibes(typeData, Integer.parseInt(count));
             }
         });
 

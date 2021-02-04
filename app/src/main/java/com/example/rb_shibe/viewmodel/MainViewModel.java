@@ -29,8 +29,8 @@ public class MainViewModel extends ViewModel {
 
     private final ShibeRepository shibeRepo = ShibeRepository.getInstance();
 
-    public void fetchShibes(int count) {
-        shibeRepo.getShibes(count).enqueue(new Callback<List<String>>() {
+    public void fetchShibes(String type, int count) {
+        shibeRepo.getShibes(type, count).enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(@NotNull Call<List<String>> call, @NotNull Response<List<String>> response) {
                 List<String> urls = response.body();
