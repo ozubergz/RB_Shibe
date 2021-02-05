@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private String typeData;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,4 +75,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.rvList.setLayoutManager(linearLayoutManager);
     }
+
+
 }
